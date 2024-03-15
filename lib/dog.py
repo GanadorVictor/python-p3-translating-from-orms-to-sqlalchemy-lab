@@ -1,22 +1,13 @@
-from models import Dog
+#!/usr/bin/env python3
 
-def create_table(base):
-    pass
+from sqlalchemy import (Column, String, Integer)
+from sqlalchemy.ext.declarative import declarative_base
 
-def save(session, dog):
-    pass
+Base = declarative_base()
 
-def get_all(session):
-    pass
+class Dog(Base):
+    __tablename__ = 'dogs'
 
-def find_by_name(session, name):
-    pass
-
-def find_by_id(session, id):
-    pass
-
-def find_by_name_and_breed(session, name, breed):
-    pass
-
-def update_breed(session, dog, breed):
-    pass
+    id = Column(Integer(), primary_key=True)
+    name = Column(String())
+    breed = Column(String())
